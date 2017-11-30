@@ -1,0 +1,10 @@
+name: KeesTChain
+main: com.keest.keestchain.Principal
+version: 1.0.1
+description: Plugin de Chain!
+author: KeesT
+commands:
+    chain:
+        usage: §4[Chain] Digite /chain para ver os comandos!
+        description: Comandos gerais do plugin.
+        aliases: ca

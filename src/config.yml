@@ -1,0 +1,105 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                    ####
+##        #    #  # # #  # # #  # # #  # # #        ####
+###       #  #    #      #      #        #         ####
+####      # #     # # #  # # #  # # #    #        #####
+###       #  #    #      #          #    #         ####
+##        #   #   # # #  # # #  # # #    #          ###
+#                   ( ͡° ͜ʖ ͡°)                      ##
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                         #
+#                  Meu Skype: samukatb                   #
+#                                                       #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+Versao: '1.0.1'
+
+Configurar:
+#Mensagens gerais do plugin
+  Mensagens:
+    SpawnSetado: '&aO spawn do Chain foi definido com sucesso!'
+    SaidaSetada: '&aA saida do Chain foi definida!'
+    CamaroteSetado: '&aO camarote do Chain foi definido!'
+    ConfigReload: '&a&lA configuração foi recarregada!'
+    KitDefinido: '&aO kit do Chain foi definido com sucesso!'
+    EsvazieInventario: '&eEsvazie seu inventario antes de entrar!'
+    NaoPodeAcertar: '&eVocê não pode hitar jogadores que estão no Chain!'
+    NaoPodeAcertar2: '&eVocê não pode hitar jogadores que não estão no Chain!'
+    NaoPodeAcertar3: '&eVocê não pode hitar outros jogadores no camarote!'
+    NaoEsta: '&eVocê não esta no Chain para sair!'
+    NaoEstaCamarote: '&cVocê não esta no camarote do Chain para sair!'
+    PrecisaSairDoChain: '&eVocê precisa sair do Chain para assistir ao Chain!'
+    JaEntrou: '&eVocê já esta no Chain!'
+    JaEstaCamarote: '&aVocê já esta assistindo ao Chain!'
+    VoceEntrouCamarote: '&eVoce foi teleportado ao camarote do Chain!'
+    VoceSaiuCamarote: '&eVoce saiu do camarote do Chain!'
+    VoceEntrou: '&aVocê entrou no chain. Atualmente há &c@jogadores@ &ano Chain!'
+    JogadorEntrou: '&a[Chain] @jogador@ entrou no Chain. Total de jogadores no Chain: @jogadores@!'
+    JogadorEntrouGlobal: '&a&l[Chain] O jogador @jogador@ acaba de entrar no Chain, entre também! /chain entrar!'
+    VoceSaiu: '&cVocê saiu do Chain :('
+    JogadorSaiu: '&e[Chain] @jogador@ saiu do Chain. Total de jogadores: @jogadores@!'
+    JogadorDeslogou: '&e[Chain] @jogador@ deslogou do servidor. Total de jogadores: @jogadores@!'
+    EntrouAssistir: '&e[Chain] Você foi teleportado ao camarote do Chain!'
+    Status: '&a[Chain] Atualmente há @jogadores@ no Chain! Junte-se a eles, use /chain entrar!'
+    VoceMatou: '&aVoce matou o jogador @jogador@ e recebeu @money@ de money!'
+    VoceMorreu: '&eVoce foi morto por @jogador@!'
+    JogadorMatou: '&a[Chain] @jogadormorto@ foi morto por @jogadormatou@!'
+    MorreuDesconhecido: '&a[Chain] @jogador@ foi morto no Chain!'
+    VoceMorreuDesconhecido: '&eVocê foi morto no Chain!'
+    NaoPodeUsarCmds: '&c[Chain] Você não pode usar esse comando no Chain!'
+    NaoPodeDroparItem: '&cVocê não pode dropar items enquanto estiver no Chain!'
+    SemPermissao: '&cVocê não tem permissão para usar esse comando!'
+    ComandoNormal:
+      - '                  &b&l[Chain]'
+      - '&a - /chain entrar &b: Entrar na arena do Chain!'
+      - '&a - /chain sair &b: Sair da arena do Chain!'
+      - '&a - /chain assistir &b: Assistir a arena Chain!'
+      - '&a - /chain sairassistir &b: Parar de assistir o Chain!'
+      - '&a - /chain status &b: Ver os jogadores presentes no evento!'
+    ComandoAdmin:
+      - '&e - /chain reload &c: Recarrega a configuração!'
+      - '&e - /chain setarkit &c: Seta o kit do chain!'
+      - '&e - /chain setarspawn &c: Seta o local de spawn do Chain!'
+      - '&e - /chain setarcamarote &c: Setar o local do camarote do Chain!'
+      - '&e - /chain setarsaida &c: Setar a saida do Chain!'
+      
+#Titulos
+  Titulos:
+    VoceEntrou:
+      Titulo: '&a&lChain!'
+      Subtitulo: '&eVocê entrou no Chain!'
+      Ativar: true
+    VoceSaiu:
+      Titulo: '&cVoce saiu :('
+      Subtitulo: '&ePara voltar ao chain, digite /chain!'
+      Ativar: true
+    VoceMorreu:
+      Titulo: '&eDerrotado!'
+      Subtitulo: '&eVocê foi morto no Chain!'
+      Ativar: true
+  
+#Configurações do Chain
+  Opcoes:
+    NaoRemoverCabecas: true
+    DarMoneyAoMatar: true
+    MoneyAoMatar: 500
+    BloquearOPlayerDeDroparItem: true
+    NaoDroparItemAoMorrer: true
+#Opção para ativar os vários sons!
+    AtivarSons: true
+    EfeitosFogos: true
+    
+#Quando essa opção estiver true, automaticamente quando um jogador entrar no Chain
+#O inventario dele será salvo automaticamente, sem precisar ficar esvaziando o inventario, e ele recebera os itens
+#Normais do Chain. Quando ele morrer no Chain ou sair do servidor, ele automaticamente receberá os itens devolta!
+    GuardarInventario: true
+
+#Os jogadores que estiverem no Chain só poderão usar os comandos que estiverem listados abaixo.
+#Não é necessario por o comando completo, apenas o inicio dele.
+    ComandosPermitidos:
+      - '/chain'
+      - '/g'
+      - '/money'
+      - '/tell'
+      - '/.'
