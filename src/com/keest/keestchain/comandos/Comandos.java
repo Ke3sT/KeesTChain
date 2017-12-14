@@ -101,7 +101,7 @@ public class Comandos implements CommandExecutor {
                     }
 
                     this.plugin.setLocal("spawn", jogador.getLocation());
-                    this.plugin.editaDados.set("Lugares.Spawn", jogador.getWorld().getName() + ";" + jogador.getLocation().getX() + ";" + jogador.getLocation().getY() + ";" + jogador.getLocation().getZ() + ";" + jogador.getLocation().getYaw() + ";" + jogador.getLocation().getPitch());
+                    this.plugin.editaDados.set("Lugares.Spawn", jogador.getWorld().getName() + ";" + jogador.getLocation().getBlockX()+ ";" + jogador.getLocation().getBlockY() + ";" + jogador.getLocation().getBlockZ() + ";" + jogador.getLocation().getYaw() + ";" + jogador.getLocation().getPitch());
                     this.plugin.salvaKit();
                     jogador.sendMessage(this.plugin.getMsg("SpawnSetado"));
                     if (this.plugin.tocarSom()) {
@@ -118,7 +118,7 @@ public class Comandos implements CommandExecutor {
                     }
 
                     this.plugin.setLocal("camarote", jogador.getLocation());
-                    this.plugin.editaDados.set("Lugares.Camarote", jogador.getWorld().getName() + ";" + jogador.getLocation().getX() + ";" + jogador.getLocation().getY() + ";" + jogador.getLocation().getZ() + ";" + jogador.getLocation().getYaw() + ";" + jogador.getLocation().getPitch());
+                    this.plugin.editaDados.set("Lugares.Camarote", jogador.getWorld().getName() + ";" + jogador.getLocation().getBlockX()+ ";" + jogador.getLocation().getBlockY() + ";" + jogador.getLocation().getBlockZ() + ";" + jogador.getLocation().getYaw() + ";" + jogador.getLocation().getPitch());
                     this.plugin.salvaKit();
                     jogador.sendMessage(this.plugin.getMsg("CamaroteSetado"));
                     if (this.plugin.tocarSom()) {
@@ -135,7 +135,7 @@ public class Comandos implements CommandExecutor {
                     }
 
                     this.plugin.setLocal("saida", jogador.getLocation());
-                    this.plugin.editaDados.set("Lugares.Saida", jogador.getWorld().getName() + ";" + jogador.getLocation().getX() + ";" + jogador.getLocation().getY() + ";" + jogador.getLocation().getZ() + ";" + jogador.getLocation().getYaw() + ";" + jogador.getLocation().getPitch());
+                    this.plugin.editaDados.set("Lugares.Saida", jogador.getWorld().getName() + ";" + jogador.getLocation().getBlockX() + ";" + jogador.getLocation().getBlockY() + ";" + jogador.getLocation().getBlockZ() + ";" + jogador.getLocation().getYaw() + ";" + jogador.getLocation().getPitch());
                     this.plugin.salvaKit();
                     jogador.sendMessage(this.plugin.getMsg("SaidaSetada"));
                     if (this.plugin.tocarSom()) {

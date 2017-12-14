@@ -81,6 +81,7 @@ Configurar:
   
 #Configurações do Chain
   Opcoes:
+#Essa opção eu fiz pro meu plugin de Almas, ela não remove cabeças do inventario quando o jogador sai do Chain.
     NaoRemoverCabecas: true
     DarMoneyAoMatar: true
     MoneyAoMatar: 500
@@ -89,6 +90,7 @@ Configurar:
 #Opção para ativar os vários sons!
     AtivarSons: true
     EfeitosFogos: true
+    EfeitosAoMatar: 
     
 #Quando essa opção estiver true, automaticamente quando um jogador entrar no Chain
 #O inventario dele será salvo automaticamente, sem precisar ficar esvaziando o inventario, e ele recebera os itens

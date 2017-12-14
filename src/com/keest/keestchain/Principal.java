@@ -57,7 +57,6 @@ public class Principal extends JavaPlugin {
     private Location spawn, camarote, saida;
     private HashMap<Integer, ItemStack> chainKit = new HashMap<>();
     private HashMap<String, HashMap<Integer, ItemStack>> jogadoresItens = new HashMap<>();
-    private boolean usaTitle;
 
     private File chainDados;
     public FileConfiguration editaDados;
@@ -429,17 +428,17 @@ public class Principal extends JavaPlugin {
         economy.depositPlayer(jogador, quantidade);
     }
 
-    private void getVersao() {
+    private boolean versaoAcima18() {
         String versioN = Bukkit.getServer().getVersion();
         if (versioN.contains("1.5") || versioN.contains("1.6") || versioN.contains("1.7") || versioN.contains("1.4") || versioN.contains("1.3")) {
-            usaTitle = false;
+            return false;
         } else {
-            usaTitle = true;
+            return true;
         }
     }
     
     public boolean usarTitle() {
-        return usaTitle;
+        return versaoAcima18();
     }
 
     public void removeMoney(String jogador, Double quantidade) {
