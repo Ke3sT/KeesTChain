@@ -48,7 +48,7 @@ public class Titulos {
 
     public void enviaTitulo(Player jogador, String titulo) {
 
-        if (this.plugin.usarTitle()) {
+        if (this.plugin.getVersao()) {
 
             if (titleConfig.get(titulo + ".Ativar") == true) {
 

@@ -33,7 +33,7 @@ public class PlayerMorre implements Listener {
             Player morreu = (Player) ev.getEntity();
 
             if (this.plugin.tocarSom()) {
-                morreu.playSound(morreu.getLocation(), Sound.VILLAGER_NO, 1, 2);
+                morreu.playSound(morreu.getLocation(), Sound.NOTE_PIANO, 1, 2);
             }
 
             ev.setDeathMessage(null);
@@ -78,8 +78,8 @@ public class PlayerMorre implements Listener {
                     Bukkit.getPlayer(camarotes).playSound(Bukkit.getPlayer(camarotes).getLocation(), Sound.ORB_PICKUP, 1, 2);
                 }
 
+                
                 this.plugin.delJogador(morreu.getName());
-                this.plugin.desequipaJogador(morreu);
 
                 return;
             }
@@ -100,9 +100,8 @@ public class PlayerMorre implements Listener {
                 Bukkit.getPlayer(camarotes).sendMessage(this.plugin.getMsg("MorreuDesconhecido").replace("@jogador@", morreu.getName()));
                 Bukkit.getPlayer(camarotes).playSound(Bukkit.getPlayer(camarotes).getLocation(), Sound.ORB_PICKUP, 1, 2);
             }
-
+            
             this.plugin.delJogador(morreu.getName());
-            this.plugin.desequipaJogador(morreu);
         }
 
         if (this.plugin.getCamarotes().contains(ev.getEntity().getName())) {

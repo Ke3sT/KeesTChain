@@ -11,6 +11,7 @@ import com.keest.keestchain.listeners.Outros;
 import com.keest.keestchain.listeners.PlayerDamage;
 import com.keest.keestchain.listeners.PlayerDigiteCmd;
 import com.keest.keestchain.listeners.PlayerMorre;
+import com.keest.keestchain.listeners.PlayerRenasce;
 import com.keest.keestchain.listeners.PlayerSaiu;
 import java.io.File;
 import java.io.IOException;
@@ -78,16 +79,12 @@ public class Principal extends JavaPlugin {
                 Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "                   Plugin Ativado!");
                 Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "             Este plugin foi criado por KeesT!");
                 Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "      Caso encontre bugs, me informe no Skype: samukatb!");
-                Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "                     Versao: 1.0.3");
+                Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "                     Versao: 1.0.1");
                 Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "   #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#--#-#");
                 carregaConfig();
                 carregaEconomy();
                 getCommand("chain").setExecutor(new Comandos(this));
-                Bukkit.getServer().getPluginManager().registerEvents(new PlayerSaiu(this), plugin);
-                Bukkit.getServer().getPluginManager().registerEvents(new PlayerDamage(this), plugin);
-                Bukkit.getServer().getPluginManager().registerEvents(new PlayerMorre(this), plugin);
-                Bukkit.getServer().getPluginManager().registerEvents(new PlayerDigiteCmd(this), plugin);
-                Bukkit.getServer().getPluginManager().registerEvents(new Outros(this), plugin);
+                carregaListeners();
             } else {
                 Bukkit.getPluginManager().disablePlugin(this);
             }
@@ -160,6 +157,15 @@ public class Principal extends JavaPlugin {
     //////////////////////////////////////////////////////////////////
 
     //////////////////[ METODOS EXTRAS] /////////////////////
+    private void carregaListeners() {
+        Bukkit.getServer().getPluginManager().registerEvents(new PlayerSaiu(this), plugin);
+        Bukkit.getServer().getPluginManager().registerEvents(new PlayerDamage(this), plugin);
+        Bukkit.getServer().getPluginManager().registerEvents(new PlayerMorre(this), plugin);
+        Bukkit.getServer().getPluginManager().registerEvents(new PlayerDigiteCmd(this), plugin);
+        Bukkit.getServer().getPluginManager().registerEvents(new Outros(this), plugin);
+        Bukkit.getServer().getPluginManager().registerEvents(new PlayerRenasce(this), plugin);
+    }
+
     private boolean estaAtualizado() {
         String vers = getConfig().getString("Versao");
 
@@ -280,19 +286,28 @@ public class Principal extends JavaPlugin {
             jogador.getInventory().setArmorContents(null);
         }
 
+        devolveInventario(jogador);
+    }
+
+    public void devolveInventario(Player jogador) {
         if (guardaInventario()) {
             if (jogadoresItens.containsKey(jogador.getName())) {
-                HashMap<Integer, ItemStack> map = jogadoresItens.get(jogador.getName());
+                
+                if (jogadoresItens.containsKey(jogador.getName())) {
+                    HashMap<Integer, ItemStack> map = jogadoresItens.get(jogador.getName());
 
-                for (int item : map.keySet()) {
+                    for (int item : map.keySet()) {
 
-                    if (jogador.getInventory().getItem(item) == null) {
-                        jogador.getInventory().setItem(item, map.get(item));
-                    } else {
-                        jogador.getInventory().addItem(map.get(item));
+                        if (jogador.getInventory().getItem(item) == null) {
+                            jogador.getInventory().setItem(item, map.get(item));
+                        } else {
+                            jogador.getInventory().addItem(map.get(item));
+                        }
                     }
-                }
 
+                }
+                
+                jogadoresItens.remove(jogador.getName());
             }
         }
     }
@@ -436,8 +451,8 @@ public class Principal extends JavaPlugin {
             return true;
         }
     }
-    
-    public boolean usarTitle() {
+
+    public boolean getVersao() {
         return versaoAcima18();
     }
 

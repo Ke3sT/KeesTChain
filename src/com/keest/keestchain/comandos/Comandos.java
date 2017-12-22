@@ -88,7 +88,11 @@ public class Comandos implements CommandExecutor {
                     jogador.sendMessage(this.plugin.getMsg("KitDefinido"));
 
                     if (this.plugin.tocarSom()) {
+                        if (this.plugin.getVersao()) {
                         jogador.playSound(jogador.getLocation(), Sound.HORSE_ARMOR, 1, 2);
+                        } else {
+                            jogador.playSound(jogador.getLocation(), Sound.ANVIL_LAND, 1, 3);
+                        }
                     }
 
                     return true;
@@ -167,7 +171,11 @@ public class Comandos implements CommandExecutor {
                         jogador.removePotionEffect(efeitos.getType());
                     }
 
+                    if (this.plugin.getVersao()) {
                     jogador.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 28, 10, true, false));
+                    } else {
+                        jogador.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 28, 10));
+                    }
 
                     this.plugin.tpSpawn(jogador);
                     this.plugin.getTitles.enviaTitulo(jogador, "VoceEntrou");
@@ -177,11 +185,13 @@ public class Comandos implements CommandExecutor {
                         Bukkit.getPlayer(jogadores).sendMessage(this.plugin.getMsg("JogadorEntrou").replace("@jogador@", jogador.getName()).replace("@jogadores@", String.valueOf(this.plugin.getJogadores().size())));
                     }
 
-                    for (Player jogadores : Bukkit.getServer().getOnlinePlayers()) {
+                    try {
+                    for (Player jogadores : Bukkit.getOnlinePlayers()) {
                         if (!this.plugin.getJogadores().contains(jogadores.getName()) && !jogadores.getName().equalsIgnoreCase(jogador.getName())) {
                             jogadores.sendMessage(this.plugin.getMsg("JogadorEntrouGlobal").replace("@jogador@", jogador.getName()));
                         }
                     }
+                    } catch (NoSuchMethodError ex) {}
 
                     for (String jogadores : this.plugin.getCamarotes()) {
                         Bukkit.getPlayer(jogadores).sendMessage(this.plugin.getMsg("JogadorEntrou").replace("@jogador@", jogador.getName()).replace("@jogadores@", String.valueOf(this.plugin.getJogadores().size())));
@@ -207,7 +217,11 @@ public class Comandos implements CommandExecutor {
                         jogador.removePotionEffect(efeitos.getType());
                     }
 
+                    if (this.plugin.getVersao()) {
                     jogador.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 28, 10, true, false));
+                    } else {
+                        jogador.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 28, 10));
+                    }
 
                     this.plugin.tpSaida(jogador);
                     this.plugin.getTitles.enviaTitulo(jogador, "VoceSaiu");
@@ -243,7 +257,11 @@ public class Comandos implements CommandExecutor {
                         return true;
                     }
 
+                    if (this.plugin.getVersao()) {
                     jogador.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 28, 10, true, false));
+                    } else {
+                        jogador.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 28, 10));
+                    }
 
                     if (this.plugin.tocarSom()) {
                         jogador.playSound(jogador.getLocation(), Sound.ORB_PICKUP, 1, 2);
@@ -263,7 +281,12 @@ public class Comandos implements CommandExecutor {
                         return true;
                     }
 
+                    
+                    if (this.plugin.getVersao()) {
                     jogador.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 28, 10, true, false));
+                    } else {
+                        jogador.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 28, 10));
+                    }
 
                     if (this.plugin.tocarSom()) {
                         jogador.playSound(jogador.getLocation(), Sound.ORB_PICKUP, 1, 2);
